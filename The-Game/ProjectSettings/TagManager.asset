@@ -5,8 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - Platform
-  - PlatformW
-  - PlatformB
+  - Goal
+  - Spawn
+  - Hazard
+  - W
+  - B
   layers:
   - Default
   - TransparentFX
