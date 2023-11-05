@@ -43,6 +43,7 @@ public class PlayerScript : MonoBehaviour
             }
             if (Input.GetKeyDown(KeyCode.Space) && grounded == true)
             {
+                Debug.Log("Jumping");
                 player.velocity = new Vector2(player.velocity.x, 4f * addedForce);
             }
         }
@@ -73,6 +74,7 @@ public class PlayerScript : MonoBehaviour
     {
         if (obj.gameObject.CompareTag("Platform"))
         {
+            Debug.Log("Grounded");
             grounded = true;
         }
 
