@@ -16,6 +16,9 @@ public class PlayerScript : MonoBehaviour
 
     public LayerMask notPlayer;
 
+    public AudioSource death;
+    public AudioSource jump;
+
     void Start()
     {
         spawn = GameObject.FindGameObjectWithTag("Spawn");
@@ -46,8 +49,8 @@ public class PlayerScript : MonoBehaviour
             }
             if (Input.GetKeyDown(KeyCode.Space) && grounded == true)
             {
-                Debug.Log("Hello World" + grounded);
                 player.velocity = new Vector2(player.velocity.x, 4f * addedForce);
+                jump.Play();
             }
         }
 
@@ -55,6 +58,7 @@ public class PlayerScript : MonoBehaviour
         {
             // do death animation thing
             player.transform.position = spawn.transform.position;
+            death.Play();
             life = 1;
             // possible death counter here.
         }
@@ -67,25 +71,20 @@ public class PlayerScript : MonoBehaviour
     }
 
 
-    public void setGrounded(bool input)
+    void OnCollisionEnter2D(Collision2D obj)
     {
-        grounded = input;
+        //    if (obj.gameObject.CompareTag("Platform"))
+        //    {
+        //        Debug.Log("Grounded");
+        //        grounded = true;
+        //    }
+
+        if (obj.gameObject.CompareTag("Enemy"))
+        {
+            life = 0;
+        }
     }
-
-
-    //void OnCollisionEnter2D(Collision2D obj)
-    //{
-    //    if (obj.gameObject.CompareTag("Platform"))
-    //    {
-    //        Debug.Log("Grounded");
-    //        grounded = true;
-    //    }
-
-    //    else if (obj.gameObject.CompareTag("Enemy"))
-    //    {
-    //        life = 0;
-    //    }
-    //}
+   
 
     //void OnCollisionExit2D(Collision2D obj)
     //{
