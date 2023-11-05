@@ -16,7 +16,7 @@ public class GoalScript : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             // load the next level
-            SceneManager.LoadScene(sceneBuildIndex, LoadSceneMode.Single);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
 
     }

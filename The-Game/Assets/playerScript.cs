@@ -14,6 +14,8 @@ public class PlayerScript : MonoBehaviour
 
     int life; // 1 for alive, 0 for dead.
 
+    public LayerMask notPlayer;
+
     void Start()
     {
         spawn = GameObject.FindGameObjectWithTag("Spawn");
@@ -24,6 +26,7 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        MaybeGrounded();
         if (life == 1)
         {
             // A + D + Space Movement
@@ -43,7 +46,7 @@ public class PlayerScript : MonoBehaviour
             }
             if (Input.GetKeyDown(KeyCode.Space) && grounded == true)
             {
-                Debug.Log("Jumping");
+                Debug.Log("Hello World" + grounded);
                 player.velocity = new Vector2(player.velocity.x, 4f * addedForce);
             }
         }
@@ -63,34 +66,35 @@ public class PlayerScript : MonoBehaviour
         return life;
     }
 
-    public void SetLife(int status)
+
+    public void setGrounded(bool input)
     {
-        life = status;
+        grounded = input;
     }
 
 
+    //void OnCollisionEnter2D(Collision2D obj)
+    //{
+    //    if (obj.gameObject.CompareTag("Platform"))
+    //    {
+    //        Debug.Log("Grounded");
+    //        grounded = true;
+    //    }
 
-    void OnCollisionEnter2D(Collision2D obj)
-    {
-        if (obj.gameObject.CompareTag("Platform"))
-        {
-            Debug.Log("Grounded");
-            grounded = true;
-        }
+    //    else if (obj.gameObject.CompareTag("Enemy"))
+    //    {
+    //        life = 0;
+    //    }
+    //}
 
-        if (obj.gameObject.CompareTag("Enemy"))
-        {
-            life = 0;
-        }
-    }
-
-    void OnCollisionExit2D(Collision2D obj)
-    {
-        if (obj.gameObject.CompareTag("Platform"))
-        {
-            grounded = false;
-        }
-    }
+    //void OnCollisionExit2D(Collision2D obj)
+    //{
+    //    if (obj.gameObject.CompareTag("Platform"))
+    //    {
+    //        Debug.Log("left collision");
+    //        grounded = false;
+    //    }
+    //}
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -100,4 +104,16 @@ public class PlayerScript : MonoBehaviour
         }
     }
 
+    private void MaybeGrounded()
+    {
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, -Vector2.up, 1f, notPlayer);
+        if (hit.collider != null)
+        {
+            grounded = true;
+        }
+        else
+        {
+            grounded = false;
+        }
+    }
 }

@@ -2388,7 +2388,7 @@ GameObject:
   - component: {fileID: 1969353372}
   - component: {fileID: 1969353371}
   - component: {fileID: 1969353370}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PlayerObject
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -2483,7 +2483,10 @@ MonoBehaviour:
   playerRend: {fileID: 1969353373}
   addedForce: 3
   grounded: 1
-  spawn: {fileID: 0}
+  spawn: {fileID: 1197894157}
+  notPlayer:
+    serializedVersion: 2
+    m_Bits: 55
 --- !u!212 &1969353373
 SpriteRenderer:
   m_ObjectHideFlags: 0

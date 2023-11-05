@@ -652,7 +652,7 @@ GameObject:
   - component: {fileID: 424731024}
   - component: {fileID: 424731023}
   - component: {fileID: 424731022}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PlayerObject
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -799,7 +799,10 @@ MonoBehaviour:
   playerRend: {fileID: 424731021}
   addedForce: 3
   grounded: 1
-  spawn: {fileID: 0}
+  spawn: {fileID: 1535486325}
+  notPlayer:
+    serializedVersion: 2
+    m_Bits: 55
 --- !u!4 &424731025
 Transform:
   m_ObjectHideFlags: 0
