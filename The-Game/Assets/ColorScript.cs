@@ -12,10 +12,15 @@ public class ColorScript : MonoBehaviour
     // Start is called before the first frame update
     private GameObject[] platformArray;
     private GameObject[] hazardArray;
+    private GameObject[] enemyArray;
+
+    public Sprite enemyB;
     void Start()
     {
         platformArray = GameObject.FindGameObjectsWithTag("Platform");
         hazardArray = GameObject.FindGameObjectsWithTag("Hazard");
+        enemyArray = GameObject.FindGameObjectsWithTag("Enemy");
+
     }
 
     // Update is called once per frame
@@ -97,6 +102,33 @@ public class ColorScript : MonoBehaviour
             }
         }
 
+        //Changes visibility of the enemies.
+        for (int k = 0; k < enemyArray.Length; k++)
+        {
+            if (state == 1)
+            {
+                if(enemyArray[k].GetComponent<SpriteRenderer>().sprite == enemyB)
+                {
+                    enemyArray[k].SetActive(true);
+                }
+                else
+                {
+                    enemyArray[k].SetActive(false);
+                }
+            }
+
+            else
+            {
+                if (enemyArray[k].GetComponent<SpriteRenderer>().sprite == enemyB)
+                {
+                    enemyArray[k].SetActive(false);
+                }
+                else
+                {
+                    enemyArray[k].SetActive(true);
+                }
+            }
+        }
 
     }
 }

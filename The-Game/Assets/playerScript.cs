@@ -75,6 +75,11 @@ public class PlayerScript : MonoBehaviour
         {
             grounded = true;
         }
+
+        if (obj.gameObject.CompareTag("Enemy"))
+        {
+            life = 0;
+        }
     }
 
     void OnCollisionExit2D(Collision2D obj)

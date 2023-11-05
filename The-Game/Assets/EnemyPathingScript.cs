@@ -30,7 +30,6 @@ public class EnemyPathingScript : MonoBehaviour
         // if the point the enemy is going towards is point B, then it will:
         if (pointTowards == PointB.transform)
         {
-            Debug.Log(transform.position + "And" + pointTowards.position);
 
             // add velocity to x direction as enemy goes left & right, left is negative, right is positive
             enemyRigid.velocity = new Vector2(speed, 0);
@@ -46,7 +45,6 @@ public class EnemyPathingScript : MonoBehaviour
         // if enemy's current directional goal is point B and its distance from it is under 0.5, then...
         if (Vector2.Distance(transform.position, pointTowards.position) < 0.5f && pointTowards == PointB.transform)
         {
-            Debug.Log("B reached, swapping.");
             // Then it's new goal is point A.
             pointTowards = PointA.transform;
         }

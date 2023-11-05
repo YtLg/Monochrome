@@ -8,8 +8,7 @@ TagManager:
   - Goal
   - Spawn
   - Hazard
-  - W
-  - B
+  - Enemy
   layers:
   - Default
   - TransparentFX
