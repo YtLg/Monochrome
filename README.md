@@ -3,7 +3,8 @@
 
 ## Introduction
 
-This is a puzzle platformer revolving around two colours, and was my HackNotts '24 submission.
+This is a platformer made with the intention of being difficult, revolving around swapping between two colours.
+This was my HackNotts '24 submission and won Best First Hack.
 
 ## How to Play
 
